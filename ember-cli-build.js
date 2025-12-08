@@ -18,5 +18,8 @@ module.exports = async function (defaults) {
     // Add options here
   });
 
+  // import HDS CSS
+  app.import('node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css');
+
   return compatBuild(app, buildOnce);
 };

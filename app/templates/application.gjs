@@ -1,12 +1,26 @@
 import { pageTitle } from 'ember-page-title';
-import { WelcomePage } from 'ember-welcome-page';
+import {
+  HdsAppFrame
+} from '@hashicorp/design-system-components/components';
 
 <template>
-  {{pageTitle "OnboardingExercise"}}
+  {{pageTitle "Onboarding Exercise"}}
 
   {{outlet}}
 
-  {{! The following component displays Ember's default welcome message. }}
-  <WelcomePage />
-  {{! Feel free to remove this! }}
+  <HdsAppFrame as |Frame|>
+    <Frame.Header>
+      {{! your "header" content goes here, this is just a mock placeholder }}
+      header
+    </Frame.Header>
+    <Frame.Sidebar>
+      sidebar
+    </Frame.Sidebar>
+    <Frame.Main>
+      main
+    </Frame.Main>
+    <Frame.Footer>
+      footer
+    </Frame.Footer>
+  </HdsAppFrame>
 </template>
