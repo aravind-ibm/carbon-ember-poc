@@ -1,6 +1,8 @@
 import { pageTitle } from 'ember-page-title';
 import {
-  HdsAppFrame
+  HdsAppFrame,
+  HdsAppHeader,
+  HdsAppSideNav
 } from '@hashicorp/design-system-components/components';
 
 <template>
@@ -8,13 +10,12 @@ import {
 
   {{outlet}}
 
-  <HdsAppFrame as |Frame|>
+  <HdsAppFrame as |Frame| >
     <Frame.Header>
-      {{! your "header" content goes here, this is just a mock placeholder }}
-      header
+      <HdsAppHeader></HdsAppHeader>
     </Frame.Header>
     <Frame.Sidebar>
-      sidebar
+      <HdsAppSideNav></HdsAppSideNav>
     </Frame.Sidebar>
     <Frame.Main>
       main
