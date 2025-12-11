@@ -19,7 +19,9 @@ module.exports = async function (defaults) {
   });
 
   // import HDS CSS
-  app.import('node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css');
+  app.import(
+    'node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css'
+  );
 
   return compatBuild(app, buildOnce);
 };

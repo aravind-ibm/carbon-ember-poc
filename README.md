@@ -1,6 +1,6 @@
 # onboarding-exercise
 
-Use this starter repo for implementing the [onboarding exercise](https://ibm.ent.box.com/s/uh3p3ll1f77a187rh5emraoj61cx91bp?sb=/boxai#:~:text=Exercise:%20Create%20Org,Beginner%20Task). 
+Use this starter repo for implementing the [onboarding exercise](https://ibm.ent.box.com/s/uh3p3ll1f77a187rh5emraoj61cx91bp?sb=/boxai#:~:text=Exercise:%20Create%20Org,Beginner%20Task).
 
 ## Prerequisites
 
