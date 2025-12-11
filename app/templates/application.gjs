@@ -18,10 +18,8 @@ import {
       <HdsAppSideNav></HdsAppSideNav>
     </Frame.Sidebar>
     <Frame.Main>
-      main
     </Frame.Main>
     <Frame.Footer>
-      footer
     </Frame.Footer>
   </HdsAppFrame>
 </template>
