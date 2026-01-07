@@ -4,20 +4,23 @@ import {
   HdsAppHeader,
   HdsAppSideNav,
 } from '@hashicorp/design-system-components/components';
+import NavBar from '../components/nav-bar';
 
 <template>
-  {{pageTitle "Onboarding Exercise"}}
-
-  {{outlet}}
-
   <HdsAppFrame as |Frame|>
     <Frame.Header>
       <HdsAppHeader />
     </Frame.Header>
     <Frame.Sidebar>
-      <HdsAppSideNav />
+      <HdsAppSideNav>
+        <NavBar />
+      </HdsAppSideNav>
     </Frame.Sidebar>
-    <Frame.Main />
+    <Frame.Main>
+      <div class="main_container">
+        {{outlet}}
+      </div>
+    </Frame.Main>
     <Frame.Footer />
   </HdsAppFrame>
 </template>
