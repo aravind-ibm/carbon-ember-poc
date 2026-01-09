@@ -44,10 +44,12 @@ export function deleteOrg(id) {
   const orgs = getStoredOrgs();
   const idToMatch = String(id);
 
-  const updatedOrgs = orgs.filter((org) => String(org.id) !== idToMatch);
+  const updatedOrgsAfterDelete = orgs.filter(
+    (org) => String(org.id) !== idToMatch
+  );
 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedOrgs));
-  return updatedOrgs;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedOrgsAfterDelete));
+  return updatedOrgsAfterDelete;
 }
 
 /**
@@ -57,6 +59,6 @@ export function getOrgById(id) {
   const orgs = getStoredOrgs();
   const idToMatch = String(id);
 
-  const updatedOrgs = orgs.filter((org) => String(org.id) !== idToMatch);
-  return updatedOrgs;
+  const foundOrg = orgs.filter((org) => String(org.id) === idToMatch);
+  return foundOrg;
 }

@@ -33,8 +33,8 @@ export default class OrgDataService extends Service {
       );
     });
   }
-  getOrgById() {
-    return this.orgData.find((org) => org.id === this.activeOrgId);
+  getOrgById(id) {
+    return this.orgData.find((org) => org.id === id);
   }
   @action
   toggleEditMode(id = null) {

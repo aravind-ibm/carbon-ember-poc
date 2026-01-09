@@ -9,7 +9,6 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { on } from '@ember/modifier';
-import ConfirmationBox from '../confirmation-box';
 
 export default class OrgForm extends Component {
   @service orgData;
@@ -88,13 +87,13 @@ export default class OrgForm extends Component {
   }
   @action
   saveSubmitAction() {
-    const newdData = {
+    const newData = {
       organization: this.organizationValue,
       industry: this.industryValue,
       employeeCount: this.employeeCountValue,
       location: this.locationValue,
     };
-    this.orgData.saveNewOrg(newdData);
+    this.orgData.saveNewOrg(newData);
     this.router.transitionTo('org-list');
     this.notification.showToastMessageHandler(
       'Success',
@@ -130,13 +129,12 @@ export default class OrgForm extends Component {
     super(...arguments); // Required to access this.args
 
     if (this.orgData.activeOrgId) {
-      const org = this.orgData.getOrgById();
+      const org = this.orgData.getOrgById(this.orgData.activeOrgId);
       this.title = 'Edit Organization';
       this.organizationValue = org.organization ?? '';
       this.industryValue = org.industry ?? '';
       this.employeeCountValue = org.employeeCount ?? 0;
       this.locationValue = org.location ?? '';
-      this.orgData;
     }
   }
   <template>
@@ -201,13 +199,5 @@ export default class OrgForm extends Component {
         </HdsLayoutFlex>
       </HdsLayoutFlex>
     </form>
-
-    {{!-- <ConfirmationBox
-      @isModalOpen={{this.isModalOpen}}
-      @closeModal={{this.toggleMessageModal}}
-      @handleConfirmation={{this.toggleMessageModal}}
-      @title=""
-      @message={{this.successMessage}}
-    /> --}}
   </template>
 }

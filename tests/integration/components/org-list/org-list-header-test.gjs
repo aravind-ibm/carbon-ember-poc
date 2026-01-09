@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'onboarding-exercise/tests/helpers';
 import { render } from '@ember/test-helpers';
 import OrgListHeader from 'onboarding-exercise/components/org-list/org-list-header';
 
-module('Integration | Component | org-list/search', function (hooks) {
+module('Integration | Component | org-list/org-list-header', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
