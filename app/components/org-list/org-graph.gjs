@@ -49,7 +49,7 @@ export default class OrgGraph extends Component {
   });
 
   <template>
-    <div class="graph_container">
+    <div class="graph-container">
       {{! We use a standard canvas and attach the modifier }}
       <canvas {{this.renderChart}}></canvas>
     </div>

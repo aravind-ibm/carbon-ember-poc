@@ -9,7 +9,6 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { on } from '@ember/modifier';
-import { getOrgById, createOrg } from '../../helpers/local-storage';
 import ConfirmationBox from '../confirmation-box';
 
 export default class OrgForm extends Component {
@@ -150,7 +149,7 @@ export default class OrgForm extends Component {
     <h2 class="form-title">{{this.title}}</h2>
     <form>
 
-      <HdsLayoutFlex @gap="16" @direction="column" class="form_layout">
+      <HdsLayoutFlex @gap="16" @direction="column" class="form-layout">
         <HdsFormTextInputField
           @type="text"
           @value={{this.organizationValue}}
@@ -200,7 +199,11 @@ export default class OrgForm extends Component {
         </HdsFormTextInputField>
         <HdsLayoutFlex @gap="16">
           <HdsButton @text="Save Org" {{on "click" this.handleSave}} />
-          <HdsButton @text="Reset" {{on "click" this.reset}} />
+          <HdsButton
+            @text="Reset"
+            {{on "click" this.reset}}
+            @color="secondary"
+          />
         </HdsLayoutFlex>
       </HdsLayoutFlex>
     </form>

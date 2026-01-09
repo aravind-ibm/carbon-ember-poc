@@ -17,7 +17,7 @@ import NavBar from '../components/nav-bar';
       </HdsAppSideNav>
     </Frame.Sidebar>
     <Frame.Main>
-      <div class="main_container">
+      <div class="main-container">
         {{outlet}}
       </div>
     </Frame.Main>

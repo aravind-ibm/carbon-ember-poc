@@ -21,15 +21,15 @@ export default class EditOrg extends Component {
     {{#if this.orgData.isEditModeEnabled}}
       <HdsModal
         id="basic-modal"
+        @isDismissDisabled={{true}}
         @onClose={{this.orgData.toggleEditMode}}
         as |M|
       >
-        <M.Header>
+        <M.Header @onDismiss={{this.orgData.toggleEditMode}}>
           Edit Org
         </M.Header>
         <M.Body>
           <div class="hds-typography-body-300 hds-foreground-primary">
-
             <OrgForm />
           </div>
         </M.Body>

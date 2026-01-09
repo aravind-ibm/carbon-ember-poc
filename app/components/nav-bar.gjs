@@ -2,7 +2,7 @@ import { HdsAppSideNavList } from '@hashicorp/design-system-components/component
 
 <template>
   <HdsAppSideNavList as |Nav|>
-    <Nav.Link @icon="dashboard" @text="ORG BOARD" @isActive={{true}} />
+    <Nav.Title>ORG BOARD </Nav.Title>
     <Nav.Link @text="Org List" @icon="list" @route="org-list" />
     <Nav.Link @text="Add Org" @icon="plus" @route="create-org" />
   </HdsAppSideNavList>

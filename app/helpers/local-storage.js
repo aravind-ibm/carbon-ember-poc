@@ -3,24 +3,7 @@ const STORAGE_KEY = 'hds_org_data';
 export function getStoredOrgs() {
   const data = localStorage.getItem(STORAGE_KEY);
   const result = data ? JSON.parse(data) : null;
-  if (result) return result;
-  else
-    return [
-      {
-        id: '1',
-        organization: 'IBM',
-        industry: 'IT',
-        employeeCount: 3040,
-        location: 'Kochi',
-      },
-      {
-        id: '2',
-        organization: 'L7',
-        industry: 'IT',
-        employeeCount: 1040,
-        location: 'Kochi',
-      },
-    ];
+  return result;
 }
 
 /**

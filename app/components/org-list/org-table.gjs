@@ -48,12 +48,14 @@ export default class OrgTable extends Component {
               <HdsButton
                 @text="Edit Org"
                 @icon="pencil-tool"
+                @color="secondary"
                 @isIconOnly={{true}}
                 {{on "click" (fn this.orgData.toggleEditMode B.data.id)}}
               />
               <HdsButton
                 @text="Delete Org"
                 @icon="trash"
+                @color="critical"
                 @isIconOnly={{true}}
                 {{on "click" (fn this.deleteOrg B.data.id)}}
               />
