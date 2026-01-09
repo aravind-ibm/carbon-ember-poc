@@ -13,6 +13,7 @@ import ConfirmationBox from '../confirmation-box';
 
 export default class OrgForm extends Component {
   @service orgData;
+  @service notification;
   @service router;
   fields = [
     { value: 'organizationValue', error: 'organizationError' },
@@ -28,7 +29,6 @@ export default class OrgForm extends Component {
   @tracked employeeCountValue = '0';
   @tracked locationValue = '';
   @tracked locationError = false;
-  @tracked isModalOpen = false;
   @action
   updateValue(event) {
     const { name, value } = event.target;
@@ -80,6 +80,11 @@ export default class OrgForm extends Component {
       location: this.locationValue,
     };
     this.orgData.saveEditedOrg(editedData);
+    this.notification.showToastMessageHandler(
+      'Success',
+      'Organization saved successfully',
+      'success'
+    );
   }
   @action
   saveSubmitAction() {
@@ -90,6 +95,12 @@ export default class OrgForm extends Component {
       location: this.locationValue,
     };
     this.orgData.saveNewOrg(newdData);
+    this.router.transitionTo('org-list');
+    this.notification.showToastMessageHandler(
+      'Success',
+      'Organization added successfully',
+      'success'
+    );
   }
   @action
   handleSave() {
@@ -100,7 +111,6 @@ export default class OrgForm extends Component {
     } else {
       this.saveSubmitAction();
     }
-    this.toggleMessageModal();
   }
 
   @action
@@ -114,22 +124,6 @@ export default class OrgForm extends Component {
       if (!field.error) return;
       this[field.error] = false;
     });
-  }
-  @action
-  toggleMessageModal() {
-    if (this.isModalOpen) {
-      //modal is open
-      this.isModalOpen = false;
-      setTimeout(() => {
-        if (!this.orgData.activeOrgId) {
-          this.router.transitionTo('org-list');
-        } else {
-          this.orgData.toggleEditMode(null);
-        }
-      }, 0);
-    } else {
-      this.isModalOpen = true;
-    }
   }
 
   constructor() {
@@ -208,12 +202,12 @@ export default class OrgForm extends Component {
       </HdsLayoutFlex>
     </form>
 
-    <ConfirmationBox
+    {{!-- <ConfirmationBox
       @isModalOpen={{this.isModalOpen}}
       @closeModal={{this.toggleMessageModal}}
       @handleConfirmation={{this.toggleMessageModal}}
       @title=""
       @message={{this.successMessage}}
-    />
+    /> --}}
   </template>
 }

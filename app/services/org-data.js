@@ -44,12 +44,12 @@ export default class OrgDataService extends Service {
     } else {
       this.activeOrgId = null;
     }
-    console.log(this.isEditModeEnabled);
   }
   @action
   saveEditedOrg(orgData) {
     this.orgData = updateOrg(this.activeOrgId, orgData);
     this.updateSearchTerm('');
+    this.toggleEditMode();
   }
   @action
   saveNewOrg(newOrgData) {

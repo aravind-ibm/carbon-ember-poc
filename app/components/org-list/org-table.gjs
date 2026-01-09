@@ -4,7 +4,6 @@ import {
   HdsButton,
   HdsLayoutFlex,
 } from '@hashicorp/design-system-components/components';
-import { array, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { fn } from '@ember/helper';
 import EditOrg from './edit-org';
@@ -24,6 +23,7 @@ const tableConfig = [
 
 export default class OrgTable extends Component {
   @service orgData;
+  @service notification;
   @tracked isModalOpen = false;
   @action
   toggleMessageModal() {
@@ -32,7 +32,11 @@ export default class OrgTable extends Component {
   @action
   deleteOrg(id) {
     this.orgData.deleteOrgById(id);
-    this.toggleMessageModal();
+    this.notification.showToastMessageHandler(
+      'Success',
+      'Organization deleted successfully',
+      'success'
+    );
   }
   <template>
     <HdsTable @model={{@orgList}} @columns={{tableConfig}}>
@@ -65,12 +69,12 @@ export default class OrgTable extends Component {
       </:body>
     </HdsTable>
     <EditOrg />
-    <ConfirmationBox
+    {{!-- <ConfirmationBox
       @isModalOpen={{this.isModalOpen}}
       @closeModal={{this.toggleMessageModal}}
       @handleConfirmation={{this.toggleMessageModal}}
       @title=""
       @message="Org has been deleted successfully"
-    />
+    /> --}}
   </template>
 }

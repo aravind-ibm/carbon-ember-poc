@@ -1,10 +1,10 @@
-import { pageTitle } from 'ember-page-title';
 import {
   HdsAppFrame,
   HdsAppHeader,
   HdsAppSideNav,
 } from '@hashicorp/design-system-components/components';
 import NavBar from '../components/nav-bar';
+import Notification from '../components/notification';
 
 <template>
   <HdsAppFrame as |Frame|>
@@ -23,4 +23,7 @@ import NavBar from '../components/nav-bar';
     </Frame.Main>
     <Frame.Footer />
   </HdsAppFrame>
+
+  {{! Render notification at root level for proper positioning }}
+  <Notification />
 </template>

@@ -1,9 +1,9 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'onboarding-exercise/tests/helpers';
 import { render } from '@ember/test-helpers';
-import OrgListHeader from 'onboarding-exercise/components/org-list/org-list-header';
+import Notification from 'onboarding-exercise/components/notification';
 
-module('Integration | Component | org-list/search', function (hooks) {
+module('Integration | Component | notification', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
@@ -12,18 +12,16 @@ module('Integration | Component | org-list/search', function (hooks) {
     // and update using state.myProperty = 1; await rerender();
     // Handle any actions with function myAction(val) { ... };
 
-    await render(<template><OrgListHeader /></template>);
+    await render(<template><Notification /></template>);
 
     assert.dom().hasText('');
 
     // Template block usage:
-    await render(
-      <template>
-        <OrgListHeader>
-          template block text
-        </OrgListHeader>
-      </template>
-    );
+    await render(<template>
+      <Notification>
+        template block text
+      </Notification>
+    </template>);
 
     assert.dom().hasText('template block text');
   });
