@@ -1,0 +1,299 @@
+/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.main-container {
+  padding: 30px 20px;
+}
+
+/* Toast absolute positioning */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.toast-item {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.graph-container {
+  position: relative;
+  height: 40vh;
+  width: 80vw;
+  margin-top: 78px;
+}
+
+.search-wrapper {
+  max-width: 650px;
+}
+
+.add-org {
+  width: 150px;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.form-layout {
+  max-width: 600px;
+}
+
+.form-title {
+  margin-block: 20px;
+}
+
+.application-state-wrapper {
+  margin-top: 40px;
+  padding-left: 12px;
+}
+
+/* Organization Detail Page Styles */
+.org-detail-container {
+  padding: 32px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.org-detail-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.back-to-list-link {
+  text-decoration: none;
+  display: inline-block;
+  width: fit-content;
+}
+
+.org-detail-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  color: #1f2937;
+  letter-spacing: -0.5px;
+}
+
+.org-detail-card {
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -1px rgb(0 0 0 / 6%);
+  overflow: hidden;
+}
+
+.org-detail-content {
+  padding: 32px;
+}
+
+.org-detail-field {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e5e7eb;
+  align-items: baseline;
+}
+
+.org-detail-field:first-child {
+  padding-top: 0;
+}
+
+.org-detail-field:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.org-detail-label {
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.org-detail-value {
+  color: #111827;
+  font-size: 16px;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.org-not-found {
+  text-align: center;
+  color: #9ca3af;
+  padding: 48px 24px;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.org-id-link {
+  color: #2563eb;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.org-id-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (width <= 640px) {
+  .org-detail-container {
+    padding: 20px 16px;
+  }
+
+  .org-detail-title {
+    font-size: 24px;
+  }
+
+  .org-detail-content {
+    padding: 20px;
+  }
+
+  .org-detail-field {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px 0;
+  }
+
+  .org-detail-label {
+    font-size: 13px;
+  }
+
+  .org-detail-value {
+    font-size: 15px;
+  }
+}
+
+/* Pagination Styles */
+.pagination-container {
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.pagination-info {
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.pagination-limit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination-label {
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.pagination-controls {
+  flex-wrap: wrap;
+}
+
+.pagination-ellipsis {
+  color: #9ca3af;
+  padding: 0 8px;
+  font-weight: 600;
+}
+
+.pagination-page-btn {
+  min-width: 40px;
+}
+
+/* Filter and Sort Controls */
+.filter-sort-container {
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+}
+
+.filter-control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+}
+
+.filter-label {
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (width <= 768px) {
+  .pagination-container {
+    padding: 12px;
+  }
+
+  .pagination-controls {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .filter-control {
+    min-width: 100%;
+  }
+}
+
+.width {
+  width: 200px;
+}
+
+/* Clear Filter Button - Match select input height */
+.filter-sort-container .hds-button--size-small {
+  height: 40px;
+  padding-inline: 12px;
+}
+
+/* Not Found Page */
+.not-found-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 40px 20px;
+}
