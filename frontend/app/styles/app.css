@@ -44,9 +44,15 @@
 
 .graph-container {
   position: relative;
-  height: 40vh;
-  width: 80vw;
+  width: 100%;
+  max-width: 1200px;
   margin-top: 78px;
+  margin-inline: auto;
+}
+
+/* Carbon Charts specific styles */
+.graph-container > div {
+  min-height: 400px;
 }
 
 .search-wrapper {
