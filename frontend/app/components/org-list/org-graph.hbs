@@ -1,3 +1,31 @@
-<div id="graph-container">
-  <div {{this.setupChart @orgList}}></div>
-</div>
+<Hds::Layout::Flex @direction="column" class="row-gap">
+  <CarbonChart
+    @data={{this.barChartData}}
+    @options={{this.barChartOptions}}
+    @chartType="bar"
+  />
+
+  <Hds::Layout::Flex class="pie-radar-layout" @gap="16" @justify="space-around">
+    <div class="equal-chart-frame">
+      <CarbonChart
+        @data={{this.pieChartData}}
+        @options={{this.pieChartOptions}}
+        @chartType="pie"
+      />
+    </div>
+
+    <div class="equal-chart-frame">
+      <CarbonChart
+        @data={{this.radarChartData}}
+        @options={{this.radarChartOptions}}
+        @chartType="radar"
+      />
+    </div>
+  </Hds::Layout::Flex>
+
+  <CarbonChart
+    @data={{this.meterChartData}}
+    @options={{this.meterChartOptions}}
+    @chartType="meter"
+  />
+</Hds::Layout::Flex>
