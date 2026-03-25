@@ -15,7 +15,6 @@ import {
 import { modifier } from 'ember-modifier';
 import { runTask } from 'ember-lifeline';
 import { registerDestructor } from '@ember/destroyable';
-import { service } from '@ember/service';
 
 // Map chart type strings to chart classes
 const CHART_TYPES = {
@@ -32,18 +31,16 @@ const CHART_TYPES = {
 };
 
 export default class CarbonChartComponent extends Component {
-  @service theme;
-
   chart = null;
 
   setupChart = modifier((element, [data, options, chartType]) => {
-    // Merge theme into options
+    // Merge theme into options (using white theme for light mode)
     const themedOptions = {
       ...options,
-      theme: this.theme.carbonChartsTheme,
+      theme: 'white',
     };
 
-    // If chart exists, update data and theme
+    // If chart exists, update data and options
     if (this.chart) {
       this.chart.model.setData(data);
       this.chart.model.setOptions(themedOptions);

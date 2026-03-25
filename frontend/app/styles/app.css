@@ -1,38 +1,5 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
 
-/* Theme Variables */
-:root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --bg-tertiary: #f3f4f6;
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --text-tertiary: #9ca3af;
-  --border-color: #e5e7eb;
-  --border-color-light: #f3f4f6;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
-  --card-bg: #ffffff;
-  --input-bg: #ffffff;
-  --hover-bg: #f9fafb;
-}
-
-[data-theme='dark'] {
-  --bg-primary: #1e293b;
-  --bg-secondary: #0f172a;
-  --bg-tertiary: #334155;
-  --text-primary: #f1f5f9;
-  --text-secondary: #cbd5e1;
-  --text-tertiary: #94a3b8;
-  --border-color: #334155;
-  --border-color-light: #475569;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 40%);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 50%), 0 2px 4px -1px rgb(0 0 0 / 40%);
-  --card-bg: #1e293b;
-  --input-bg: #0f172a;
-  --hover-bg: #334155;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -45,11 +12,8 @@
 }
 
 body {
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  background-color: #f9fafb;
+  color: #111827;
 }
 
 .main-container {
@@ -150,15 +114,17 @@ body {
   font-size: 32px;
   font-weight: 700;
   margin: 0;
-  color: var(--text-primary);
+  color: #111827;
   letter-spacing: -0.5px;
 }
 
 .org-detail-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 12px;
-  box-shadow: var(--shadow-md);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -1px rgb(0 0 0 / 6%);
   overflow: hidden;
 }
 
@@ -185,7 +151,7 @@ body {
 }
 
 .org-detail-label {
-  color: var(--text-secondary);
+  color: #6b7280;
   font-weight: 600;
   font-size: 14px;
   text-transform: uppercase;
@@ -193,7 +159,7 @@ body {
 }
 
 .org-detail-value {
-  color: var(--text-primary);
+  color: #111827;
   font-size: 16px;
   font-weight: 500;
   word-break: break-word;
@@ -259,9 +225,9 @@ body {
 /* Pagination Styles */
 .pagination-container {
   padding: 16px;
-  background: var(--bg-tertiary);
+  background: #f3f4f6;
   border-radius: 8px;
-  border: 1px solid var(--border-color);
+  border: 1px solid #e5e7eb;
 }
 
 .pagination-info {
@@ -300,10 +266,10 @@ body {
 /* Filter and Sort Controls */
 .filter-sort-container {
   padding: 16px;
-  background: var(--card-bg);
+  background: #ffffff;
   border-radius: 8px;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
 }
 
 .filter-control {
@@ -381,128 +347,4 @@ body {
   max-width: 100% !important;
 }
 
-/* Theme Toggle Wrapper - Fixed position in top-right */
-.theme-toggle-wrapper {
-  position: fixed;
-  top: 12px;
-  right: 20px;
-  z-index: 10000;
-}
-
-/* Theme Toggle HDS Button Customization */
-.theme-toggle-hds-btn {
-  box-shadow: var(--shadow-sm);
-}
-
-/* Dark mode specific adjustments */
-[data-theme='dark'] .org-detail-card {
-  background: var(--bg-primary);
-  border-color: var(--border-color);
-}
-
-[data-theme='dark'] .org-detail-title {
-  color: var(--text-primary);
-}
-
-[data-theme='dark'] .org-detail-label {
-  color: var(--text-secondary);
-}
-
-[data-theme='dark'] .org-detail-value {
-  color: var(--text-primary);
-}
-
-[data-theme='dark'] .pagination-container,
-[data-theme='dark'] .filter-sort-container {
-  background: var(--bg-primary);
-  border-color: var(--border-color);
-}
-
-/* HDS Side Navigation Dark Mode */
-[data-theme='dark'] .hds-app-side-nav {
-  background-color: var(--bg-primary);
-  border-right-color: var(--border-color);
-}
-
-[data-theme='dark'] .hds-app-side-nav__title {
-  color: var(--text-primary);
-}
-
-[data-theme='dark'] .hds-app-side-nav__link {
-  color: var(--text-secondary);
-}
-
-[data-theme='dark'] .hds-app-side-nav__link:hover {
-  background-color: var(--hover-bg);
-  color: var(--text-primary);
-}
-
-[data-theme='dark'] .hds-app-side-nav__link--is-active {
-  background-color: var(--bg-tertiary);
-  color: var(--text-primary);
-}
-
-/* HDS Table Dark Mode */
-[data-theme='dark'] .hds-table {
-  background-color: var(--card-bg);
-  color: var(--text-primary);
-}
-
-[data-theme='dark'] .hds-table__thead {
-  background-color: var(--bg-tertiary);
-  border-bottom-color: var(--border-color);
-}
-
-[data-theme='dark'] .hds-table__th {
-  color: var(--text-primary);
-  border-bottom-color: var(--border-color);
-}
-
-[data-theme='dark'] .hds-table__td {
-  color: var(--text-primary);
-  border-bottom-color: var(--border-color);
-}
-
-[data-theme='dark'] .hds-table__tr:hover {
-  background-color: var(--hover-bg);
-}
-
-[data-theme='dark'] .hds-table__tbody .hds-table__tr {
-  border-bottom-color: var(--border-color);
-}
-
-/* HDS App Frame Dark Mode */
-[data-theme='dark'] .hds-app-frame {
-  background-color: var(--bg-secondary);
-}
-
-[data-theme='dark'] .hds-app-frame__header {
-  background-color: var(--bg-primary);
-  border-bottom-color: var(--border-color);
-}
-
-[data-theme='dark'] .hds-app-frame__main {
-  background-color: var(--bg-secondary);
-}
-
-/* HDS Form Elements Dark Mode */
-[data-theme='dark'] .hds-form-text-input__input,
-[data-theme='dark'] .hds-form-select__control {
-  background-color: var(--input-bg);
-  border-color: var(--border-color);
-  color: var(--text-primary);
-}
-
-[data-theme='dark'] .hds-form-text-input__input:focus,
-[data-theme='dark'] .hds-form-select__control:focus {
-  border-color: var(--border-color-light);
-  background-color: var(--bg-primary);
-}
-
-[data-theme='dark'] .hds-form-label {
-  color: var(--text-primary);
-}
-
-[data-theme='dark'] .hds-form-helper-text {
-  color: var(--text-secondary);
-}
+/* Made with Bob */
