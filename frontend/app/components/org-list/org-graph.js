@@ -1,0 +1,54 @@
+import '@carbon/charts/styles.css';
+import Component from '@glimmer/component';
+import { SimpleBarChart } from '@carbon/charts';
+import { modifier } from 'ember-modifier';
+import { runTask } from 'ember-lifeline';
+import { registerDestructor } from '@ember/destroyable';
+
+export default class OrgGraph extends Component {
+  chart = null;
+
+  setupChart = modifier((element, [orgList]) => {
+    const data = (orgList ?? []).map((org, i) => ({
+      group: 'Employee Count',
+      key: org.organization,
+      value: org.employeeCount,
+    }));
+
+    // If chart exists, update data immediately
+    if (this.chart) {
+      this.chart.model.setData(data);
+      return;
+    }
+
+    // Replace next() with runTask()
+    // This schedules the creation for the next paint/run loop cycle safely
+    runTask(this, () => {
+      if (!element) return;
+
+      const options = {
+        title: 'Organizations by Employee Count',
+        axes: {
+          left: { mapsTo: 'value', title: 'Employee Count' },
+          bottom: { mapsTo: 'key', scaleType: 'labels', title: 'Organization' },
+        },
+        height: '400px',
+        resizable: true,
+      };
+
+      try {
+        this.chart = new SimpleBarChart(element, { data, options });
+      } catch (e) {
+        console.error('Carbon initialization failed', e);
+      }
+    });
+
+    // Clean up using @ember/destroyable pattern
+    registerDestructor(this, () => {
+      if (this.chart) {
+        this.chart.destroy();
+        this.chart = null;
+      }
+    });
+  });
+}

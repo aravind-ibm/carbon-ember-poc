@@ -1,0 +1,26 @@
+{{page-title "OrgList"}}
+{{outlet}}
+<OrgList
+  @availableIndustries={{this.availableIndustries}}
+  @industry={{this.industry}}
+  @sortBy={{this.sortBy}}
+  @sortOrder={{this.sortOrder}}
+  @paginatedData={{this.paginatedData}}
+  @sortedData={{this.sortedData}}
+  @page={{this.page}}
+  @totalPages={{this.totalPages}}
+  @totalItems={{this.totalItems}}
+  @pageInfo={{this.pageInfo}}
+  @limit={{this.limit}}
+  @hasPreviousPage={{this.hasPreviousPage}}
+  @hasNextPage={{this.hasNextPage}}
+  @changeIndustryFilter={{this.changeIndustryFilter}}
+  @changeSortBy={{this.changeSortBy}}
+  @changeSortOrder={{this.changeSortOrder}}
+  @clearFilters={{this.clearFilters}}
+  @goToPage={{this.goToPage}}
+  @previousPage={{this.previousPage}}
+  @nextPage={{this.nextPage}}
+  @changeLimit={{this.changeLimit}}
+  @queryFunction={{this.queryFunction}}
+/>
